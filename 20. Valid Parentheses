@@ -1,0 +1,33 @@
+class Solution {
+public boolean isValid(String s) {
+        Stack<Character> sc = new Stack<Character>();
+        boolean ans = false;
+        if(s.length()%2 != 0){
+            return false;
+        }
+        for(char c : s.toCharArray()){
+            if(c == ')'){
+                if(sc.empty()) {ans = false; break;}
+                else if(sc.peek() == '(') {sc.pop(); ans = true;}
+                else{sc.pop(); ans = false; break;}
+
+            } else if(c == ']') {
+                if(sc.empty()) {ans = false; break;}
+                else if(sc.peek() == '[') {sc.pop(); ans = true;}
+                else{sc.pop(); ans = false; break;}
+            }
+            else if(c == '}') {
+                if(sc.empty()) {ans = false; break;}
+                else if(sc.peek() == '{') {sc.pop(); ans = true;}
+                else{sc.pop(); ans = false; break;}
+            }
+            else
+                sc.push(c);
+        }
+        if(!sc.empty()){
+            return false;
+        }
+        
+return ans;
+    }
+}
