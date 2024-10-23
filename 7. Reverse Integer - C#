@@ -1,0 +1,32 @@
+public class Solution {
+    public int Reverse(int x) {
+        bool flag = false;
+        int a = 0;
+        long reverse = 0;
+        if (x < 0)
+        {
+            x = x * (-1);
+            flag = true;
+        }
+        while (x > 0)
+        { //1534236469
+            a = x % 10;
+            reverse = reverse * 10 + a;
+            if(reverse > Math.Pow(2,31) -1)
+            {
+                reverse = 0;
+                break;
+            }
+            x = x / 10;
+        }
+
+        if (flag)
+        {
+            return (int)(reverse * (-1));
+        }
+        else
+        {
+            return (int)reverse;
+        }
+    }
+}
