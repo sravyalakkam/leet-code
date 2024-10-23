@@ -1,0 +1,40 @@
+//with out using sum
+
+class Solution {
+    public int missingNumber(int[] nums) {
+
+        int  i= 0;
+        int missingNumber = 0;
+
+        while(i<=nums.length-1){
+
+            if(nums[i] == nums.length){
+                i++;
+
+            }
+            else{
+                int element = nums[i];
+                if(nums[element] != element){
+                    int temp = nums[element];
+                    nums[element] = nums[i];
+                    nums[i] = temp;
+                }
+                else{
+                    i++;
+                }
+            }
+
+        }
+
+        for(int n : nums){
+            if(missingNumber == n){
+                missingNumber++;
+            }
+            else{
+                return missingNumber;
+            }
+        }
+
+        return missingNumber;
+    }
+}
