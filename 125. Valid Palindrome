@@ -1,0 +1,28 @@
+using System.Text.RegularExpressions;
+public class Solution {
+    public bool IsPalindrome(string s) {
+        string value = "";
+
+            if (string.IsNullOrEmpty(s))
+            {
+                value = s;
+            }
+            else
+            {
+                value = Regex.Replace(s, "[^a-zA-Z0-9]", string.Empty);
+            }
+            
+            string sentence = value.ToLower();
+            bool isPalindrome = false;
+            string reverse = new string(sentence.Reverse().ToArray());
+            if (sentence == reverse)
+            {
+                isPalindrome = true;
+            }
+            else
+            {
+                isPalindrome = false;
+            }
+            return isPalindrome;
+    }
+}
