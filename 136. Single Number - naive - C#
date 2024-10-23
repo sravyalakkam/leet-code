@@ -1,0 +1,19 @@
+public class Solution {
+    public int SingleNumber(int[] nums) {
+        int ans = 0;
+            List<int> list = new List<int>();
+            foreach(int x in nums)
+            {
+                if (!list.Contains(x))
+                {
+                    list.Add(x);
+                }
+                else
+                {
+                    list.Remove(x);
+                }
+            }
+            ans = list[0];
+            return ans;
+    }
+}
