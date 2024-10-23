@@ -1,0 +1,18 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        HashMap<Integer,Integer> HashVal = new HashMap<>();
+        int result = 0;
+        int major = 0;
+        int count = 0;
+        for (int num : nums) {
+            count = HashVal.getOrDefault(num,0);
+            HashVal.put(num, 1 + count);
+            if(HashVal.get(num) > major){
+                result = num;
+                major = HashVal.get(num);
+            }
+        }
+
+        return result;
+    }
+}
