@@ -1,0 +1,13 @@
+public class Solution {
+    public int LengthOfLastWord(string s) {
+        string[] str = s.Split(' ');
+        int i = str.Length -1;
+        string result = str[i];
+        while(result.Length == 0){
+            result = str[i - 1];
+            i--;
+        }
+        return result.Length;
+    }
+
+}
