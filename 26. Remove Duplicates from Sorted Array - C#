@@ -1,0 +1,15 @@
+public class Solution {
+    public int RemoveDuplicates(int[] nums) {
+        int k = 1;
+        int val = nums[0];
+        for(int i=1;i<nums.Length;i++){
+            if(nums[i]!= val){
+                nums[k] = nums[i];
+                k++;
+            }
+            val = nums[i];
+        }
+        return k;
+    }
+  
+}
