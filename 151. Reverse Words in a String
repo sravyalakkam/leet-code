@@ -1,0 +1,29 @@
+class Solution {
+    public String reverseWords(String s) {
+     //strings are immutable in java
+             s = s.trim();
+        int r_end = s.length()-1;
+        int r_start = s.length()-1;
+        StringBuilder result = new StringBuilder();
+       while(r_start>0){
+
+
+        if(s.charAt(r_end) == ' ' ){
+               r_end--;
+               r_start = r_end;
+               continue;
+           }
+           if(s.charAt(r_start) == ' '){
+               result.append(s, r_start+1, r_end+1);
+               
+               result.append(' ');
+               r_end = r_start-1;
+           }
+
+           r_start--;
+       }
+        result.append(s,0,r_end+1);
+       return result.substring(0,result.length());
+    
+    }
+}
