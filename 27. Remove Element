@@ -1,0 +1,14 @@
+public class Solution {
+    public int RemoveElement(int[] nums, int val) {
+        int k = 0;
+            foreach(var i  in nums) 
+            {
+                if(i != val)
+                {
+                    nums[k] = i;
+                    k++;
+                }
+            }
+            return k;
+    }
+}
