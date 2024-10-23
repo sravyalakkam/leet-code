@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        HashMap<Character,Character> map_s = new HashMap<>();
+        HashMap<Character,Character> map_t = new HashMap<>();
+        char te = '\0';
+        char se = '\0';
+
+        for(int i = 0;i< s.length();i++){
+            te = map_t.getOrDefault(t.charAt(i),s.charAt(i));
+            se = map_s.getOrDefault(s.charAt(i),t.charAt(i));
+            map_t.put(t.charAt(i),te);
+            map_s.put(s.charAt(i),se);
+            if((map_t.get(t.charAt(i)) != s.charAt(i))){
+                return false;
+            } else if (map_s.get(s.charAt(i)) != t.charAt(i)) {
+                return false;
+            }
+        }
+    return true;
+    }
+}
