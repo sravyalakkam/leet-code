@@ -1,0 +1,13 @@
+public class Solution {
+    public int MissingNumber(int[] nums) {
+        IEnumerable<int> num = Enumerable.Range(1, nums.Length).Except(nums);
+            if(num.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return num.ToArray()[0];
+            }
+    }
+}
