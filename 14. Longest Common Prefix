@@ -1,0 +1,31 @@
+public class Solution {
+    public string LongestCommonPrefix(string[] strs) {
+        string a = "";
+            int minLength = strs.Min(y => y.Length);
+            string s = strs.FirstOrDefault(x => x.Length == minLength);
+            int k = 0;
+            while (k < s.Length)
+            {
+                int count = 0;
+                for(int i = 0; i < strs.Length; i++)
+                {
+                    if ((int)s.ToCharArray()[k] == (int)strs[i].ToCharArray()[k])
+                    {
+                        count++;
+                    }
+                    else{
+                        break;
+                    }
+                }
+                if (count == strs.Length)
+                {
+                    a = a + s.ToCharArray()[k];
+                }
+                else{
+                    break;
+                }
+                k++;
+            }
+            return a;
+    }
+}
