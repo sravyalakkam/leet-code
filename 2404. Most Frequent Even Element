@@ -1,0 +1,27 @@
+class Solution {
+    public int mostFrequentEven(int[] nums) {
+        HashMap<Integer,Integer> hash = new HashMap<>();
+        int result = -1;
+        int major = 0;
+        int count = 0;
+
+        for(int n : nums){
+            if(n%2 == 0){
+                count = hash.getOrDefault(n,0);
+                hash.put(n, 1 + count);
+                if(hash.get(n) > major){
+                    result = n;
+                    major = hash.get(n);
+                }
+                else if(hash.get(n) == major){
+                    if(n < result){
+                        result = n;
+                    }
+                    major = hash.get(n);
+                }
+            }
+        }
+
+        return result;
+    }
+}
