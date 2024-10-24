@@ -1,0 +1,25 @@
+public class Solution {
+    public bool DetectCapitalUse(string word) {
+        char Fl = word[0];
+            int countCap = 0;
+            for (int i = 1; i < word.Length; i++)
+            {
+                if (65 <= word[i] && word[i] <= 90)
+                {
+                    countCap++;
+                }
+            }
+            if (65 <= Fl && Fl <= 90 && (countCap == 0 || countCap == word.Length-1))
+            {
+                return true;
+            }
+            else if(97 <=  Fl && Fl <= 122 && countCap == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+    }
+}
