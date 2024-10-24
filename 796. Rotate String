@@ -1,0 +1,22 @@
+public class Solution {
+    public bool RotateString(string s, string goal) {
+        bool res = false;
+            string shift_str = string.Empty;
+            foreach (char str in s)
+            {
+                shift_str = s.Substring(1) + str;
+                s = shift_str;
+                if (shift_str == goal)
+                {
+                    res = true;
+                    break;
+                }
+                else
+                {
+                    res = false;
+                }
+            }
+
+            return res;
+    }
+}
