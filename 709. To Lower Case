@@ -1,0 +1,18 @@
+public class Solution {
+    public string ToLowerCase(string s) {
+        string a = "";
+            foreach (int c in s.ToCharArray())
+            {
+                if((char)c>='A' && (char)c <= 'Z')
+                {
+                 a = a + (char)(c+32);   
+                }
+                else{
+                    a = a + (char)c;
+                }
+               
+            }
+    return a;
+        
+    }
+}
