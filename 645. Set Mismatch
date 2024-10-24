@@ -1,0 +1,24 @@
+class Solution {
+    public int[] findErrorNums(int[] nums) {
+             int[] result = new int[2];
+        HashSet<Integer> setCheck = new HashSet<>();
+
+        for(int n : nums){
+            if(!setCheck.contains(n)){
+                setCheck.add(n);
+            }
+            else{
+                result[0] = n;
+            }
+        }
+
+        for(int i = 1;i<=nums.length;i++){
+            if(!setCheck.contains(i)){
+                result[1] = i;
+            }
+        }
+
+
+        return  result;
+    }
+}
