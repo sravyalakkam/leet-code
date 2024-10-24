@@ -1,0 +1,17 @@
+public class Solution {
+    public string ReplaceDigits(string s) {
+            string a = "";
+            for (int i = 1; i < s.Length; i = i + 2)
+            {
+                a = a + s[i-1] + (char)(s[i - 1]  + ((char)s[i] - 48));
+            }
+            if(s.Length%2 == 0)
+            {
+                return a;
+            }
+            else
+            {
+                return a + s[s.Length - 1];
+            }
+    }
+}
