@@ -1,0 +1,50 @@
+class Solution {
+     public int maximumCount(int[] nums) {
+
+        int posCount = 0, negCount = 0;
+        posCount = CountPosBS(nums);
+        negCount = CountNegBS(nums);
+
+        return Math.max(posCount,negCount);
+    }
+
+    public int CountPosBS(int[] a){
+        int l =0, r = a.length-1, posFindex = -1;
+        while(l<=r){
+            int m = l + (r-l)/2;
+            if(a[m]>0){
+                posFindex = m;
+                r = m-1;
+            }
+            else{
+                l = m+1;
+            }
+        }
+        if(posFindex == -1){
+            return  0;
+        }
+        else{
+            return a.length - posFindex;
+        }
+
+    }
+    public int CountNegBS(int[] a){
+        int l =0, r = a.length-1, negLindex = -1;
+        while(l<=r){
+            int m = l + (r-l)/2;
+            if(a[m] < 0){
+                negLindex = m;
+                l = m + 1;
+            }
+            else{
+                r = m-1;
+            }
+        }
+        if(negLindex == -1){
+            return  0;
+        }
+        else {
+            return negLindex + 1;
+        }
+    }
+}
