@@ -1,0 +1,26 @@
+public class Solution {
+    public bool IsSumEqual(string firstWord, string secondWord, string targetWord) {
+        int sum_f =0;
+            int sum_s =0;
+            int sum_t =0;
+            foreach(char c in firstWord)
+            {
+                sum_f = (sum_f * 10) + ((int)c - 97);
+            }
+            foreach (char c in secondWord)
+            {
+                sum_s = (sum_s * 10) + ((int)c - 97);
+            }
+            foreach (char c in targetWord)
+            {
+                sum_t = (sum_t * 10) + ((int)c - 97);
+            }
+            if(sum_f + sum_s == sum_t) {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+    }
+}
