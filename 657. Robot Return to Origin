@@ -1,0 +1,23 @@
+class Solution {
+    public boolean judgeCircle(String moves) {
+        int Hcount = 0;
+        int Vcount = 0;
+        for(char m : moves.toCharArray()){
+            switch (m){
+                case 'U' :
+                    Vcount ++;
+                    break;
+                case 'D' :
+                    Vcount --;
+                    break;
+                case 'L' :
+                    Hcount ++;
+                    break;
+                case 'R' :
+                    Hcount --;
+                    break;
+            }
+        }
+        return (Hcount == 0 && Vcount == 0);
+    }
+}
