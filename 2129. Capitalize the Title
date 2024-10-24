@@ -1,0 +1,23 @@
+public class Solution {
+    public string CapitalizeTitle(string title) {
+        string a = "";
+            string[] saarr = title.Split(' ');
+
+            foreach (string b in saarr)
+            {
+                if (b.Length > 2)
+                {
+                   String x = b.ToLower();
+                   int c = ((char)x.ToCharArray()[0] >= 'a' && (char)x.ToCharArray()[0] <= 'z') ? x.ToCharArray()[0] - 32 : x.ToCharArray()[0];
+                   string y = (char)c + x.Substring(1);
+                    a = a + y + " ";
+                    
+                }
+                else
+                {
+                    a = a + b.ToLower() + " ";
+                }
+            }
+            return a.Trim();
+    }
+}
